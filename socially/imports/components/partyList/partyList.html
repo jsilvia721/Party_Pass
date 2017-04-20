@@ -1,0 +1,160 @@
+
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
+  <title>Ionic Framework Example</title>
+  <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-messages.js"></script>
+  <script src="./partyList.js"></script>
+
+<ion-nav-bar class="bar-positive">
+  <ion-nav-back-button class="button-clear">
+    <i class="ion-arrow-left-c"></i> Back
+  </ion-nav-back-button>
+</ion-nav-bar>
+
+<ion-nav-view></ion-nav-view>
+
+  <ion-view view-title="Party Registration">
+
+    <ion-content class="padding">
+
+      <form name="registrationForm" novalidate="" ng-submit="$ctrl.addParty($ctrl.newParty)">
+
+        <div class="list">
+
+
+
+          <label class="item item-input">
+            <span class="input-label">Address:</span>
+            <input type="text" name="address" placeholder="1800 University Dr" ng-model="$ctrl.newParty.address" ng-minlength="1" ng-maxlength="20" required>
+          </label>
+
+          <div class="error-container" ng-show="registrationForm.address.$error" ng-messages="registrationForm.address.$error">
+            <div ng-messages-include="error-list.html"></div>
+          </div>
+
+          <label class="item item-input">
+            <span class="input-label">Date:</span>
+            <input type="text" name="date" placeholder="mm-dd-yyyy" ng-model="$ctrl.newParty.date" ng-minlength="1" ng-maxlength="20" required>
+          </label>
+
+          <div class="error-container last-error-container" ng-show="registrationForm.date.$error" ng-messages="registrationForm.date.$error">
+              <div ng-messages-include="error-list.html"></div>
+          </div>
+
+
+
+
+
+
+          <label class="item item-input">
+            <span class="input-label">Start time:</span>
+            <input type="text" name="start" placeholder="0:00AM" ng-model="$ctrl.newParty.start" ng-minlength="1" ng-maxlength="20" required>
+          </label>
+
+          <div class="error-container last-error-container" ng-show="registrationForm.start.$error" ng-messages="registrationForm.start.$error">
+              <div ng-messages-include="error-list.html"></div>
+          </div>
+
+
+
+
+
+
+          <label class="item item-input">
+            <span class="input-label">End time:</span>
+            <input type="text" name="end" placeholder="0:00AM" ng-model="$ctrl.newParty.end" ng-minlength="1" ng-maxlength="20" required>
+          </label>
+
+          <div class="error-container last-error-container" ng-show="registrationForm.end.$error" ng-messages="registrationForm.end.$error">
+              <div ng-messages-include="error-list.html"></div>
+          </div>
+
+          <label class="item item-input">
+            <span class="input-label">Host:</span>
+            <input type="text" name="Host" placeholder="John Smith" ng-model="$ctrl.newParty.host" ng-minlength="1" ng-maxlength="20" required>
+          </label>
+
+          <div class="error-container last-error-container" ng-show="registrationForm.host.$error" ng-messages="registrationForm.host.$error">
+              <div ng-messages-include="error-list.html"></div>
+          </div>
+
+
+        </div>
+
+        <button class="button button-full button-positive" type="submit">
+          Apply
+        </button>
+
+      </form>
+
+    </ion-content>
+
+  </ion-view>
+
+
+
+
+
+
+<script id="error-list.html" type="text/ng-template">
+  <div class="error" ng-message="required">
+    <i class="ion-information-circled"></i>
+    This field is required!
+  </div>
+  <div class="error" ng-message="minlength">
+    <i class="ion-information-circled"></i>
+    Minimum length of this field is 1 characters!
+  </div>
+  <div class="error" ng-message="maxlength">
+    <i class="ion-information-circled"></i>
+    Maximum length of this field is 20 characters!
+  </div>
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<header>
+  <h1>Party List</h1>
+
+
+  <form class="new-party">
+    <label>Party Name:</label>
+      <input type="text" ng-model="$ctrl.newParty.name" />
+    <label>Description:</label>
+      <input type="text" ng-model="$ctrl.newParty.description" />
+      <button ng-click="$ctrl.addParty($ctrl.newParty)">Add Party!</button>
+  </form>
+
+
+  <form class="new-party" ng-submit="$ctrl.addParty($ctrl.newParty)">
+    <input ng-model="$ctrl.newParty" type="text" name="text" placeholder="Type to add new Party"/>
+    <input ng-model="$ctrl.newParty" type="text" name="text" placeholder="Type to add new Party"/>
+    <input ng-model="$ctrl.newParty" type="text" name="text" placeholder="Type to add new Party"/>
+    <input ng-model="$ctrl.newParty" type="text" name="text" placeholder="Type to add new Party"/>
+  </form>
+
+</header>
+
+<ul>
+  <li ng-repeat="party in $ctrl.parties">
+    <button class="delete" ng-click="$ctrl.removeParty(party)">&times;</button>
+      {{party.name}}
+  </li>
+</ul>
+-->
